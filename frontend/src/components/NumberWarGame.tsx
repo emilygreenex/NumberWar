@@ -7,7 +7,7 @@ import { useEthersSigner } from '../hooks/useEthersSigner';
 import { useZamaInstance } from '../hooks/useZamaInstance';
 import '../styles/NumberWar.css';
 
-type DecryptionResult = Record<string, string>;
+type DecryptionResult = Record<string, string | number | boolean>;
 
 const MIN_VALUE = 1;
 const MAX_VALUE = 10;
@@ -19,7 +19,7 @@ const isZeroCiphertext = (value: string | null | undefined) => {
   return /^0x0+$/i.test(value);
 };
 
-const parseDecryptedUint = (value?: string): number | null => {
+const parseDecryptedUint = (value?: string | number | boolean): number | null => {
   if (!value) {
     return null;
   }
@@ -27,11 +27,32 @@ const parseDecryptedUint = (value?: string): number | null => {
   return Number.isFinite(parsed) ? parsed : null;
 };
 
-const parseDecryptedBool = (value?: string): boolean | null => {
+const parseDecryptedBool = (value?: string | number | boolean): boolean | null => {
   if (!value) {
     return null;
   }
-  return value === '1' || value.toLowerCase() === 'true';
+  if (typeof value === 'boolean') {
+    return value;
+  }
+  if (typeof value === 'number') {
+    return value === 1;
+  }
+
+  const normalized = value.toLowerCase();
+
+  if (normalized === '1' || normalized === 'true') {
+    return true;
+  }
+
+  if (normalized === '0' || normalized === 'false') {
+    return false;
+  }
+
+  if (normalized.startsWith('0x')) {
+    return normalized !== '0x0';
+  }
+
+  return null;
 };
 
 export function NumberWarGame() {
