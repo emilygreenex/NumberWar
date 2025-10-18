@@ -1,5 +1,5 @@
 // NumberWar contract generated from deployments/sepolia/NumberWar.json
-export const CONTRACT_ADDRESS = '0x0000000000000000000000000000000000000000';
+export const CONTRACT_ADDRESS = '0x131f69Ae0e59653b2CD8D315aD6fbE612D37997d';
 
 export const CONTRACT_ABI = [
   {
