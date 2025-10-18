@@ -1,0 +1,239 @@
+.numberwar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.numberwar-card {
+  width: 100%;
+  max-width: 720px;
+  background-color: #ffffff;
+  border-radius: 1.25rem;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.card-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.card-description {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.status-banner {
+  margin-top: 1.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background-color: #f8fafc;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.status-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+  background-color: #94a3b8;
+}
+
+.status-active {
+  background-color: #34d399;
+}
+
+.status-idle {
+  background-color: #94a3b8;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.primary-button,
+.secondary-button {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: #ffffff;
+  box-shadow: 0 12px 20px -6px rgba(37, 99, 235, 0.45);
+}
+
+.primary-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.primary-button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 24px -6px rgba(37, 99, 235, 0.55);
+}
+
+.secondary-button {
+  background-color: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 12px 20px -6px rgba(15, 23, 42, 0.4);
+}
+
+.secondary-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.secondary-button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 26px -10px rgba(15, 23, 42, 0.5);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.number-input {
+  height: 3rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 0 1rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.number-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+}
+
+.cipher-section {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.cipher-block {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: #f8fafc;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.cipher-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.cipher-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.link-button:disabled {
+  color: rgba(37, 99, 235, 0.4);
+  cursor: not-allowed;
+}
+
+.cipher-text {
+  margin: 0;
+  font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.9rem;
+  word-break: break-all;
+  color: #1e293b;
+}
+
+.cipher-note {
+  margin: 0.75rem 0 0;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.cipher-win {
+  color: #047857;
+  font-weight: 600;
+}
+
+.cipher-loss {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.status-message,
+.info-message,
+.error-message {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.85rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.status-message {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+}
+
+.info-message {
+  background-color: rgba(20, 184, 166, 0.12);
+  color: #0f766e;
+}
+
+.error-message {
+  background-color: rgba(248, 113, 113, 0.1);
+  color: #b91c1c;
+}
+
+@media (max-width: 640px) {
+  .numberwar-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.6rem;
+  }
+
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+}
