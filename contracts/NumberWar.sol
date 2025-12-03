@@ -2,12 +2,12 @@
 pragma solidity ^0.8.24;
 
 import {FHE, ebool, euint8, externalEuint8} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 
 /// @title NumberWar
 /// @notice Fully homomorphic encryption game where players win if the sum is even.
 /// @dev The contract generates a pseudo random encrypted number between 1 and 10 for each player.
-contract NumberWar is SepoliaConfig {
+contract NumberWar is ZamaEthereumConfig {
     mapping(address => euint8) private _systemNumbers;
     mapping(address => bool) private _hasActiveRound;
     mapping(address => ebool) private _lastOutcome;
